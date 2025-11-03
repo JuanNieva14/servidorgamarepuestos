@@ -14,10 +14,19 @@ from routers import (
     pedidos_router,
     proveedores_router,
     usuarios_router,
-
+    inventario_router,
+    registro_productos_router,
+    clasificacion_router,
+    ventasproductos_router,
+    clientes_router,
+    formaspagos_router,
+    actualizar_stock_router,
+    cotizaciones_router,
+    consulta_productos_router,
+    consulta_clientes_router,
 )
 
-# 🚀 Inicialización de la aplicación
+# 🚀 Inicialización de la aplicación python -m uvicorn main:app --reload --port 8001
 app = FastAPI(title="API Gama Repuestos Quibdó")
 
 # 🌐 Configuración de CORS para permitir conexión desde React
@@ -46,3 +55,13 @@ app.include_router(estados_router.router)
 app.include_router(pedidos_router.router)
 app.include_router(proveedores_router.router)
 app.include_router(usuarios_router.router)
+app.include_router(inventario_router.router)
+app.include_router(registro_productos_router.router)
+app.include_router(clasificacion_router.router)
+app.include_router(ventasproductos_router.router)
+app.include_router(clientes_router.router)
+app.include_router(formaspagos_router.router)
+app.include_router(actualizar_stock_router.router)
+app.include_router(cotizaciones_router.router)
+app.include_router(consulta_productos_router.router)
+app.include_router(consulta_clientes_router.router)

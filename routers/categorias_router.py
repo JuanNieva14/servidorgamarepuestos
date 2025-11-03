@@ -5,7 +5,7 @@ from datetime import datetime
 router = APIRouter(prefix="/categorias", tags=["Categorías"])
 
 # ➕ Crear categoría
-@router.post("/")
+@router.post("")
 def crear_categoria(categoria: Categoria):
     try:
         conn = get_conn()
@@ -23,7 +23,7 @@ def crear_categoria(categoria: Categoria):
         raise HTTPException(status_code=500, detail="❌ Error al crear la categoría.")
 
 # 📋 Listar todas
-@router.get("/")
+@router.get("")
 def listar_categorias():
     try:
         conn = get_conn()
