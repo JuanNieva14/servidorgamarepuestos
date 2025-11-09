@@ -11,7 +11,6 @@ from routers import (
     danos_router,
     formas_pago_router,
     estados_router,
-    pedidos_router,
     proveedores_router,
     usuarios_router,
     inventario_router,
@@ -24,6 +23,20 @@ from routers import (
     cotizaciones_router,
     consulta_productos_router,
     consulta_clientes_router,
+    consulta_proveedores_router,
+    documentos_facturas_router,
+    documentos_cotizacion_router,
+    documentos_pedidosproveedores_router,
+    consulta_cotizaciones_router,
+    ventas_por_mes_router,
+    inventario_general_router,
+    compras_proveedores_router,
+    facturacion_periodo_router,
+    gestion_pedidos_proveedores_router,
+    
+
+
+
 )
 
 # 🚀 Inicialización de la aplicación python -m uvicorn main:app --reload --port 8001
@@ -52,7 +65,6 @@ app.include_router(login_router.router)
 app.include_router(danos_router.router)
 app.include_router(formas_pago_router.router)
 app.include_router(estados_router.router)
-app.include_router(pedidos_router.router)
 app.include_router(proveedores_router.router)
 app.include_router(usuarios_router.router)
 app.include_router(inventario_router.router)
@@ -65,3 +77,13 @@ app.include_router(actualizar_stock_router.router)
 app.include_router(cotizaciones_router.router)
 app.include_router(consulta_productos_router.router)
 app.include_router(consulta_clientes_router.router)
+app.include_router(consulta_proveedores_router.router)
+app.include_router(documentos_facturas_router.router)
+app.include_router(documentos_cotizacion_router.router)
+app.include_router(documentos_pedidosproveedores_router.router)
+app.include_router(consulta_cotizaciones_router.router)
+app.include_router(ventas_por_mes_router.router)
+app.include_router(inventario_general_router.router)
+app.include_router(compras_proveedores_router.router)
+app.include_router(facturacion_periodo_router.router)
+app.include_router(gestion_pedidos_proveedores_router.router)
