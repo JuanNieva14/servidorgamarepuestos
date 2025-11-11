@@ -11,8 +11,6 @@ def crear_clasificacion(clasificacion: Clasificacion):
     try:
         conn = get_conn()
         cursor = conn.cursor()
-
-        # Inserta en el mismo orden de las columnas reales
         cursor.execute("""
             INSERT INTO clasificaciones (nombre_clasificacion, tipo, activo)
             VALUES (%s, %s, %s)
@@ -21,11 +19,9 @@ def crear_clasificacion(clasificacion: Clasificacion):
             clasificacion.tipo,
             clasificacion.activo
         ))
-
         conn.commit()
         conn.close()
         return {"ok": True, "mensaje": "Clasificación creada correctamente."}
-
     except Exception as e:
         print("❌ Error al crear clasificación:", e)
         raise HTTPException(status_code=500, detail=f"Error al crear clasificación: {e}")
@@ -37,7 +33,11 @@ def listar_clasificaciones():
         conn = get_conn()
         cursor = conn.cursor(dictionary=True)
         cursor.execute("""
-            SELECT id_clasificacion, nombre_clasificacion, tipo, activo
+            SELECT 
+                id_clasificacion,
+                nombre_clasificacion,
+                COALESCE(tipo, '-') AS tipo,
+                activo
             FROM clasificaciones
             ORDER BY id_clasificacion ASC
         """)
@@ -66,12 +66,9 @@ def actualizar_clasificacion(id_clasificacion: int, clasificacion: Clasificacion
         ))
         conn.commit()
         conn.close()
-
         if cursor.rowcount == 0:
             raise HTTPException(status_code=404, detail="Clasificación no encontrada.")
-
         return {"ok": True, "mensaje": "Clasificación actualizada correctamente."}
-
     except Exception as e:
         print("❌ Error al actualizar clasificación:", e)
         raise HTTPException(status_code=500, detail=f"Error al actualizar clasificación: {e}")
