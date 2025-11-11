@@ -16,7 +16,6 @@ def login(request: LoginRequest):
 
     if resultado:
         print("✅ Usuario autenticado:", resultado["usuario"])
-
         return JSONResponse(
             content={
                 "ok": True,
@@ -25,9 +24,9 @@ def login(request: LoginRequest):
                     "usuario": resultado.get("usuario"),
                     "nombre": resultado.get("nombre"),
                     "apellido": resultado.get("apellido"),
-                    "documento": resultado.get("documento"),
+                    "documento": resultado.get("numero_documento"),
                     "correo": resultado.get("correo"),
-                    "rol": resultado.get("id_rol"),
+                    "rol": resultado.get("rol"),  # ✅ aquí debe quedar el nombre del rol
                 }
             },
             status_code=200

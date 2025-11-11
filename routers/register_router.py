@@ -63,7 +63,7 @@ def register_persona_usuario(request: RegisterPersonaUsuario):
             INSERT INTO usuarios (usuario, contrasena, id_persona, id_rol, activo)
             VALUES (%s, %s, %s, %s, %s)
             """,
-            (usuario_generado, hashed.decode("utf-8"), id_persona, 1, 1)
+            (usuario_generado, hashed.decode("utf-8"), id_persona, 2, 1)
         )
         conn.commit()
 

@@ -39,7 +39,10 @@ from routers import (
 
 )
 
-# 🚀 Inicialización de la aplicación python -m uvicorn main:app --reload --port 8001
+# Inicialización de la aplicación python -m uvicorn main:app --reload --port 8001
+# ROL = Admin     -> jgonzalez258 (258)
+# ROL = Vendedor  -> jgonzalez456 (456)
+
 app = FastAPI(title="API Gama Repuestos Quibdó")
 
 # 🌐 Configuración de CORS para permitir conexión desde React
